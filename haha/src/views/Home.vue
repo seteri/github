@@ -1,13 +1,13 @@
 <template>
-    <div class="home-container">
-      <h1 class="home-title">Welcome to movies website</h1>
-      <p class="home-text">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non lacus vel ligula aliquet fermentum. </p>
-      <button class="home-button">Learn more</button>
+  <div class="home-container">
+      <h1 class="home-title">WELCOME TO FMOVIES</h1>
+      <p class="home-text">FMovies is one of the best site to watch movies online for free. We give full access to a database of over 20000 movies and 5000 Tv series in high quality for free streaming, with no registration required </p>
+      <button class="home-button"><a href="/movies">Start Watching</a></button>
     </div>
-  </template>
+ </template>
   
-  <style>
-    .home-container {
+  <style scoped>
+      .home-container {
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -35,5 +35,6 @@
       border-radius: 5px;
       cursor: pointer;
     }
+
   </style>
   

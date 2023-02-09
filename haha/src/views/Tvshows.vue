@@ -1,14 +1,6 @@
 <template>
 
-    <main>
-        <h2>Featured shows</h2>
-        <ul>
-          <li v-for="movie in $store.state.shows" :key="movie.id">
-            <img :src="movie.poster" alt="Movie Poster">
-            <p>{{ movie.title }}</p>
-          </li>
-        </ul>
-      </main>
+
     </template>
     
     <script>
@@ -18,7 +10,7 @@
   
   </script>
   
-  <style>
+  <style scoped>
   
   main {
       display: grid;
