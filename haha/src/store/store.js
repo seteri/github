@@ -4,40 +4,38 @@ import axios from 'axios';
 export default createStore({
 
     state:{
-      data: null,
-      searchedMovies: [],
-      param: ""
-       
+      gtxov: "",
+      film: "",
+      title: "",
+      info: "",
+      posterUrl: [
+
+      ]
+     
     },
 
     mutations:{
-      SET_DATA (state, data) {
-        
-        state.data = data;
-      }
+      poster(state,api){
+        for(let a=0;a<6;a++){
+          state.posterUrl.push({id:a, img: api.results[a].poster_path, post: api.results[a].title})
+          
+        }
+        console.log(state.info)
 
+      }
+     
     },
 
     actions:{ 
-      fetchData ({ commit },param) {
-       
-        const options = {
-          method: 'GET',
-          url: 'https://online-movie-database.p.rapidapi.com/auto-complete',
-          params: {q: param},
-          headers: {
-            'X-RapidAPI-Key': 'bf83916b1fmshe89733513789e45p161e45jsn9cfc088994e6',
-            'X-RapidAPI-Host': 'online-movie-database.p.rapidapi.com'
-          }
-        };
+
+      async getPoster({commit},movieName){
+        const response = await axios.get(`https://api.themoviedb.org/3/search/movie?api_key=15d2ea6d0dc1d476efbca3eba2b9bbfb&query=${movieName}`);
+
+          commit("poster",response.data)
         
-        axios.request(options)
-          .then(response => {
-            commit('SET_DATA', response.data);
-          })
-
-      },
-
+     
+      }
+      
        
         
         

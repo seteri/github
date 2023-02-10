@@ -2,7 +2,8 @@
       <div>
       <header>
         <h1 class="name">FMOVIES</h1>
-        <input v-model="searchedWords"  @input = "dzebna" class="movie-search" placeholder="Search" type="text">
+        <input v-model="searchedWords"   class="movie-search" placeholder="Search" type="text">
+        <button @click="search">search</button>
 
         <nav>          
           <router-link class="navbar" to="/">HOME</router-link>
@@ -10,16 +11,7 @@
           <router-link class="navbar" to="/movies">MOVIES</router-link>
         </nav>
       </header>
-      <div  class="searched-movies">
-
-        <ul>
-          <li>
-            <img :src="image1" alt="">
-
-          </li>
-        </ul>
-
-      </div>
+     
         
       
     </div>
@@ -36,16 +28,22 @@ export default {
     let searchedWords = ref("")
 
    onMounted(()=>{
-     store.dispatch("fetchData","hey")
    }) 
 
-    const dzebna = () =>{
-      count++ 
+   const gela = () =>{
 
-    }
+   }
+
+   const search = () =>{
+      store.dispatch("getPoster",searchedWords.value)
+      
+   }
+
+
     return{
-      dzebna,
+      search,
       image1,
+      gela,
       count,
       searchedWords
       
@@ -58,8 +56,8 @@ export default {
 
 <style scoped>
 img{
-  width: 400px;
-  height: 100px;
+  width: 200px;
+  height: 200px;
 }
 .searched-movies{
   margin-top: 100px;
