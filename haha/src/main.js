@@ -3,8 +3,7 @@ import App from './App.vue'
 import router from "./routes"
 import store from './store/store'
 import './assets/index.css'
-import axios from 'axios'
+import myPlugin from "./myPlugin"
 
 
-
-createApp(App).use(router).use(store).mount('#app')
+createApp(App).use(myPlugin).use(router).use(store).mount('#app')

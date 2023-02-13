@@ -1,8 +1,24 @@
 <template>
-    <h1>{{ $store.state.info }}</h1>
+  <div>
+    <p>{{ imageInfo }}</p>
+  </div>
+</template>
 
-  </template>
-  
-  <script>
+<script >
+import { computed } from 'vue';
+import  myModule  from  "../store/modules/test/index"
 
-  </script>
+export default {
+  setup() {
+    const imageInfo = computed(() => {
+      return this.$route.params.index !== undefined
+        ? state.state.posterUrl[this.$route.params.index].age
+        : 'Image not found.';
+    });
+
+    return {
+      imageInfo,
+    };
+  },
+};
+</script>
