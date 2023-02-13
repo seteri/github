@@ -1,23 +1,19 @@
 <template>
   <div>
-    <p>{{ imageInfo }}</p>
+    <p>{{ image.info }}</p>
   </div>
 </template>
 
 <script >
 import { computed } from 'vue';
-import  myModule  from  "../store/modules/test/index"
 
 export default {
   setup() {
-    const imageInfo = computed(() => {
-      return this.$route.params.index !== undefined
-        ? state.state.posterUrl[this.$route.params.index].age
-        : 'Image not found.';
-    });
+    const index = this.$route.params.index;
+    const image = computed(() => this.$store.state.posterUrl[index].age);
 
     return {
-      imageInfo,
+      image,
     };
   },
 };

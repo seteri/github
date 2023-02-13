@@ -9,11 +9,11 @@ export default {
     const redirectToPage = (index) => {
       router.push({
         name: 'ImageInfo',
-        params: {
-          index,
-        },
+        params: { index },
       });
     };
+
+
     const { state } = myModule;
     return{
       redirectToPage,
@@ -27,8 +27,8 @@ export default {
 <template>
 
   <div class="gela">
-    <div class="card" v-for="img in state.state.posterUrl">
-    <img @click="redirectToPage(index)" :src="'http://image.tmdb.org/t/p/w500/'+img.img" alt="Loading">
+    <div class="card" @click="redirectToPage(index)" :key="index"  v-for="img,index in state.state.posterUrl">
+    <img  :src="'http://image.tmdb.org/t/p/w500/'+img.img" alt="Loading">
      <p class="movie-name">{{ img.post}}</p>
     </div>
   </div>
