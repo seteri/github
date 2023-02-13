@@ -6,7 +6,4 @@ export default createStore({
   modules:{
     test  
   }
-
-  
-    
 }) 

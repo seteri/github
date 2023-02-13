@@ -1,16 +1,15 @@
 
-<script>
-import navbar from "./navbar.vue"
-
-export default{
-  components: {
-    navbar
-  }
-} 
+<script setup>
+import { onMounted } from 'vue';
+const store = useStore()
+    onMounted(() => {
+      store.dispatch("getCurrency")
+      console.log(store.state.data)   
+  })
 </script>
 
 <template>
-  <navbar/>
+  
 </template>
   
 <style >
