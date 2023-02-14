@@ -1,18 +1,16 @@
+<template>
+  <button @click="test">test</button>
+</template>
 
 <script setup>
-import { onMounted } from 'vue';
+import { useStore } from 'vuex';
+import {  ref } from 'vue'
 const store = useStore()
-    onMounted(() => {
-      store.dispatch("getCurrency")
-      console.log(store.state.data)   
-  })
+const test = () =>{
+  store.dispatch("fetchData")
+  console.log(store.state.currencies)
+  
+}
+
+
 </script>
-
-<template>
-  
-</template>
-  
-<style >
-
-
-</style>
